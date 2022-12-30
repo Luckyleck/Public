@@ -21,9 +21,7 @@ puts line
 puts "Hello #{name}!\nThis game will be you testing your luck against a series of doors.\nMake it passed all the doors and you do the impossible.\nYou win..."
 sleep 2
 puts
-
 puts "Are you ready #{name}?\nType 'yes' or 'no'"
-
 puts line
 
 continue = gets.chomp.downcase
@@ -32,7 +30,6 @@ if continue != "yes"
     puts "Okay, goodbye!"
     exit
 end
-
 puts line
 
 puts "Great, let's begin..."
@@ -62,8 +59,8 @@ def door_maker
 end
 
 first_door = door_maker()
-print first_door
-puts player_number
+# print first_door
+# puts player_number
 
 # Hash to take user input and point to which num in Array
 color = Hash.new
@@ -111,8 +108,8 @@ color["green"] = second_door[0]
 color["blue"] = second_door[1]
 color["red"] = second_door[2]
 color["black"] = second_door[3]
-print second_door
-puts player_number
+# print second_door
+# puts player_number
 second_choice = gets.chomp.downcase
 sleep 2
 
@@ -150,8 +147,8 @@ color["green"] = third_door[0]
 color["blue"] = third_door[1]
 color["red"] = third_door[2]
 color["black"] = third_door[3]
-print third_door
-puts player_number
+# print third_door
+# puts player_number
 third_choice = gets.chomp.downcase
 sleep 2
 
@@ -188,8 +185,8 @@ color["green"] = fourth_door[0]
 color["blue"] = fourth_door[1]
 color["red"] = fourth_door[2]
 color["black"] = fourth_door[3]
-print fourth_door
-puts player_number
+# print fourth_door
+# puts player_number
 fourth_choice = gets.chomp.downcase
 sleep 2
 
