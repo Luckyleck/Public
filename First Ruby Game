@@ -1,0 +1,211 @@
+### Survive the levels
+
+line = Array.new(65, "=").join("")
+fake_doors = " -=[GREEN]=[BLUE]=[RED]=[BLACK]=- "
+
+puts line; puts line; puts line; puts line
+
+puts "Hello, welcome to the game.\nI hope you're ready to play!\nWhat's your name?"
+
+puts line
+
+name = gets.chomp
+
+failed = "Wrong door #{name}. You lose.\nJust as I expected"
+continue_ask = "Shall we continue? Type 'yes' or 'no'"
+door_ask = "Which door would you like to go through #{name}? You have 1 chance."
+type_assist = "Type the color of the door"
+
+puts line 
+
+puts "Hello #{name}!\nThis game will be you testing your luck against a series of doors.\nMake it passed all the doors and you do the impossible.\nYou win..."
+sleep 2
+puts
+
+puts "Are you ready #{name}?\nType 'yes' or 'no'"
+
+puts line
+
+continue = gets.chomp.downcase
+
+if continue != "yes"
+    puts "Okay, goodbye!"
+    exit
+end
+
+puts line
+
+puts "Great, let's begin..."
+sleep 1
+puts
+puts "Before you are four colored doors.\nYou have been given a key.\nOpen the door that welcomes your key."
+puts
+
+player_number = 1000 # rand(20..100)
+
+puts fake_doors
+puts
+puts line
+sleep 1 
+puts door_ask
+puts type_assist ; puts
+
+def door_maker
+    outerArray = Array.new(4, nil)
+    (outerArray.length).times do |ele|
+        random_Num = rand(1..99)
+        ele += random_Num
+        outerArray.unshift(ele)
+    end
+
+    return outerArray.compact
+end
+
+first_door = door_maker()
+print first_door
+puts player_number
+
+# Hash to take user input and point to which num in Array
+color = Hash.new
+color["green"] = first_door[0]
+color["blue"] = first_door[1]
+color["red"] = first_door[2]
+color["black"] = first_door[3]
+
+first_choice = gets.chomp.downcase
+
+sleep 2
+
+# fail check
+if player_number < color[first_choice]
+    puts line
+    puts failed # show fail message 
+    exit # end game 
+end
+
+
+puts line
+puts "Wow, you've made it past your first door.\nWell done #{name} "
+puts
+puts continue_ask
+continue = gets.chomp.downcase
+
+if continue != "yes"
+    puts "Ahh cold feet, I understand. Play again soon!"
+    exit
+end
+
+
+puts line
+puts "Great, round 2! Pick your door"
+puts
+puts fake_doors
+puts
+puts line
+sleep 1
+puts door_ask
+puts type_assist ; puts
+second_door = door_maker()
+color = Hash.new
+color["green"] = second_door[0]
+color["blue"] = second_door[1]
+color["red"] = second_door[2]
+color["black"] = second_door[3]
+print second_door
+puts player_number
+second_choice = gets.chomp.downcase
+sleep 2
+
+# fail check 
+if player_number < color[second_choice]
+    puts line
+    puts failed # show fail message 
+    exit # end game 
+end
+
+# congrats and continue
+puts line
+puts "Ooooo you made it did it!.\nWell done #{name} "
+puts
+puts continue_ask
+continue = gets.chomp.downcase
+if continue != "yes"
+    puts "Ahh cold feet, I understand. Play again soon!"
+    exit
+end
+
+#round maker
+puts line
+puts "Glad you'd like to continue, but this is where you'll lose surely"
+puts
+puts fake_doors
+puts
+puts line
+sleep 1
+puts door_ask
+puts type_assist ; puts
+third_door = door_maker()
+color = Hash.new
+color["green"] = third_door[0]
+color["blue"] = third_door[1]
+color["red"] = third_door[2]
+color["black"] = third_door[3]
+print third_door
+puts player_number
+third_choice = gets.chomp.downcase
+sleep 2
+
+# fail check
+if player_number < color[third_choice]
+    puts line
+    puts failed # show fail message 
+    exit # end game 
+end
+
+# congrats and continue
+puts line
+puts "Wow, #{name}, are you hacking or something? The odds of this are slim to none.\nYou only have 1 more round of doors ahead."
+puts
+puts continue_ask
+continue = gets.chomp.downcase
+if continue != "yes"
+    puts "Ahh cold feet, great job though. Play again soon!"
+    exit
+end
+
+puts line
+puts "Alright, last round. If you win this, you've beaten a game that has a 6.4% chance of winning"
+puts
+puts fake_doors
+puts
+puts line
+sleep 1
+puts door_ask
+puts type_assist ; puts
+fourth_door = door_maker()
+color = Hash.new
+color["green"] = fourth_door[0]
+color["blue"] = fourth_door[1]
+color["red"] = fourth_door[2]
+color["black"] = fourth_door[3]
+print fourth_door
+puts player_number
+fourth_choice = gets.chomp.downcase
+sleep 2
+
+if player_number < color[fourth_choice]
+    puts line 
+    puts "Muahahahahaha, you were so close.\nYou had me worried.\nBetter luck next time sucker." # show fail message 
+    exit # end game 
+end
+
+puts line
+puts "Whaa... "
+sleep 1
+puts "No way... \nThis is impossible"
+sleep 2
+puts "You shouldn't have won. It was rigged against you 😠"
+sleep 2
+puts "Well.. I suppose you've won."
+sleep 2
+puts "Well done!"
