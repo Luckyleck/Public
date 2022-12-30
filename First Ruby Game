@@ -38,7 +38,7 @@ puts
 puts "Before you are four colored doors.\nYou have been given a key.\nOpen the door that welcomes your key."
 puts
 
-player_number = 1000 # rand(20..100)
+player_number = rand(20..100)
 
 puts fake_doors
 puts
